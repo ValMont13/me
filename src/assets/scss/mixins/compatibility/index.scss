@@ -1,0 +1,47 @@
+/**
+* Shadows
+*/
+
+$borderlike: 0 0 2px -1px black;
+$lightShadow-black: 0 0 3px 0 black;
+$strongShadow-black: 0 0 6px 0 black;
+$lightShadow-gray: 0 0 3px 0 gray;
+$strongShadow-gray: 0 0 6px 0 gray;
+
+@mixin shadows($shadow)
+{
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -o-box-shadow: $shadow;
+}
+
+/**
+* Transition
+*/
+
+$quick: all 0.4s ease;
+$medium: all 0.7s ease;
+$normal: all 1s ease;
+$long: all 1.4s ease;
+
+@mixin transitions($transition)
+{
+  transition: $transition;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+}
+
+/**
+* Transform
+*/
+
+@mixin transforms($transfo)
+{
+  transform: $transfo;
+  -webkit-transform: $transfo;
+  -moz-transform: $transfo;
+  -o-transform: $transfo;
+  -ms-transform: $transfo;
+}
