@@ -19,7 +19,7 @@
       return {
         menu: [
           { title: 'Moi', link: '#me' },
-          { title: 'Mes Compétences', link: '#competences' },
+          { title: 'Mes Compétences', link: '#skills' },
           { title: 'Mes Projets', link: '#projets' }
         ],
         show: window.innerWidth > 400
@@ -77,6 +77,7 @@
     display: inline-block;
     width: 25%;
     padding: 2%;
+    cursor: pointer;
     @include transitions($quick)
   }
 
@@ -85,9 +86,11 @@
   }
 
   .title {
+    display: inline-block;
     color: white;
     font-size: 34px;
     font-weight: 700;
+    cursor: pointer;
     @include transitions($quick)
   }
 
