@@ -6,10 +6,10 @@
         <b-col class="txt-container">
           <p class="txt-container-content">
             Je suis actuellement en 3ème année à Epitech Lille, je fais donc une formation spécialisée dans le développement informatique sous toutes ses formes :
-            Web, Logiciels, Jeux, Embarqués... </br></br>
-            J'ai travaillé lors de ma première année dans une agence web spécialiste dans la création de site Web & en référencement Google.</br></br>
+            Web, Logiciels, Jeux videos, Systèmes embarqués... </br></br>
+            J'ai travaillé lors de ma première année dans une agence web spécialiste dans la création de site Web et en référencement Google.</br></br>
             De part mon expérience acquise au vu de mes différents projets, je propose mes services en développement de solutions webs complétes.<br><br>
-            En plus d'aimer le développement, je participe souvent à différents événements, des hackathons ou encore la dernière DevFest !
+            En loisir, je participe souvent à différents événements, des hackathons ou encore la dernière DevFest !
           </p>
       </b-col>
       <b-col>
@@ -38,11 +38,9 @@
     },
     methods: {
       onStart (slide) {
-        console.log('Slide !')
         this.sliding = true
       },
       onEnd (slide) {
-        console.log('End sliding')
         this.sliding = false
       }
     }
@@ -75,12 +73,12 @@
     @include shadows($borderlike);
   }
 
-  .carousel-inner {
-//    height: 250px;
-  }
-
   .carousel-caption {
     background: rgba(0, 0, 0, 0.5);
+  }
+
+  #me .row {
+    margin-bottom: 3%;
   }
 
 </style>

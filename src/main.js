@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import VueScrollTo from 'vue-scrollto'
 import BootstrapVue from 'bootstrap-vue'
+import VueResource from 'vue-resource'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css'
 
@@ -22,6 +23,7 @@ Vue.use(VueScrollTo, {
   y: true
 })
 
+Vue.use(VueResource)
 Vue.use(BootstrapVue)
 
 new Vue({ // eslint-disable-line no-new

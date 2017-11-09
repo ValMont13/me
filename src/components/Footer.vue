@@ -15,11 +15,10 @@
 <style lang="scss">
 
   @import '../assets/scss/mixins/compatibility/index';
-
-  $footer-bg-color: black;
+  @import '../assets/scss/colors/index';
 
   #footer {
-    background-color: $footer-bg-color;
+    background-color: $dark-bg;
     padding: 5%;
     @include shadows($lightShadow-black);
   }

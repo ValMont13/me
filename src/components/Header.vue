@@ -1,5 +1,6 @@
 <template>
   <header>
+    <div id="topbar"><h2>Valentin Montagne, web developer</h2></div>
     <nav id="menu">
       <ul v-if="show">
         <li class="menu-item" v-for="item in menu" @click="scrollTo" :data-link="item.link">
@@ -92,6 +93,37 @@
     font-weight: 700;
     cursor: pointer;
     @include transitions($quick)
+  }
+
+  #topbar {
+    background: $dark-bg;
+    padding: 10px;
+  }
+
+  #topbar h2 {
+    display: inline-block;
+    color: white;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: .15em solid $strongGreen;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+      typing 5s steps(40, end),
+      blink-caret .5s step-end infinite;
+  }
+
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: $strongGreen }
   }
 
   /* Responsive */
