@@ -309,7 +309,7 @@
   }
 
   .web-skill {
-    padding: 30px;
+    padding: 30px !important;
     background: $strongGreen;
     color: white;
     font-weight: 800;
