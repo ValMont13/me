@@ -3,7 +3,7 @@
     <h2>Mes Compétences</h2>
     <b-container>
       <b-row id="web-skills">
-        <b-col @click="clickOnSkill" class="web-skill" v-for="(skill, idx) in webSkills" :key="skill.title" :class="getColor(skill)" :data-idx="idx">{{ skill.title }}</b-col>
+        <b-col sm="auto" @click="clickOnSkill" class="web-skill" v-for="(skill, idx) in webSkills" :key="skill.title" :class="getColor(skill)" :data-idx="idx">{{ skill.title }}</b-col>
       </b-row>
     </b-container>
     <b-container>
@@ -321,7 +321,7 @@
     @include transitions($quick)
   }
 
-  .web-skill.col:hover {
+  .web-skill:hover {
     z-index: 1;
     color: #fafafa;
     @include shadows($strongShadow-black);
