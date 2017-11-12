@@ -130,9 +130,18 @@
 
   @media only screen and (max-width: 767px)
   {
+    #topbar h2 {
+      font-size: 12px;
+    }
+
     .title {
       font-size: 28px;
     }
+
+    header {
+      border-bottom: solid 10px $strongGreen;
+    }
+
   }
 
 </style>

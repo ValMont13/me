@@ -5,15 +5,30 @@
       <b-row id="web-skills">
         <b-col @click="clickOnSkill" class="web-skill" v-for="(skill, idx) in webSkills" :key="skill.title" :class="getColor(skill)" :data-idx="idx">{{ skill.title }}</b-col>
       </b-row>
+    </b-container>
+    <b-container>
       <div id="skill-content">
-        <div id="skill-content-code" v-html="skill.code"></div>
-        <div id="skill-content-progress">{{ skill.progress }}</div>
+        <b-row>
+          <transition name="fade">
+            <b-col v-if="isActive"><div id="skill-content-code" v-html="skill.code"></div></b-col>
+          </transition>
+          <b-col>
+            <transition name="fade">
+              <div  v-if="isActive" id="skill-content-progress">
+                <h2>Expérience : {{ skill.exp }} de {{ skill.title }}</h2>
+                <b-progress :value="skill.progress" show-progress animated></b-progress>
+              </div>
+            </transition>
+          </b-col>
+        </b-row>
       </div>
     </b-container>
   </section>
 </template>
 
 <script>
+  import VueScrollTo from 'vue-scrollto'
+
   export default {
     name: 'Skills',
     data: function () {
@@ -21,12 +36,15 @@
         skill: {
           show: false,
           idx: -1,
+          title: '',
           code: '',
+          exp: '',
           progress: 0
         },
         webSkills: [
           { title: 'HTML5',
             score: 100,
+            exp: '3 ans',
             code:
             '<header></header>\n' +
             '<section id="home">\n' +
@@ -39,6 +57,7 @@
           },
           { title: 'CSS3',
             score: 80,
+            exp: '3 ans',
             code:
           '  #topbar h2 {\n' +
           '    display: inline-block;\n' +
@@ -69,18 +88,21 @@
           },
           { title: 'PHP',
             score: 70,
+            exp: '1 an',
             code:
             '<?php echo \'<h1> Hello World !</h1>\'; ?>',
             lexer: 'php'
           },
           { title: 'Javascript',
-            score: 100,
+            score: 90,
+            exp: '3 ans',
             code:
             'console.log("Hello World !")',
             lexer: 'javascript'
           },
           { title: 'Node',
             score: 70,
+            exp: '1 an',
             code:
             'const express = require(\'express\')\n' +
             'const app = express()\n' +
@@ -97,6 +119,7 @@
           },
           { title: 'Vue',
             score: 70,
+            exp: '1 an',
             code:
             'new Vue({\n' +
             '   el: "#hello-world-app",\n' +
@@ -110,6 +133,7 @@
           },
           { title: 'jQuery',
             score: 100,
+            exp: '3 ans',
             code:
             '$(document).ready(function(){\n' +
             ' $("#msgid").html("This is Hello World by JQuery");\n' +
@@ -118,6 +142,7 @@
           },
           { title: 'C++',
             score: 90,
+            exp: '2 ans',
             code:
             '#include <iostream>\n' +
             '\n' +
@@ -129,7 +154,8 @@
             lexer: 'c++'
           },
           { title: 'Assembly 64',
-            score: 60,
+            score: 55,
+            exp: '2 mois',
             code:
             'section .data\n' +
             '    msg db      "hello, world!"\n' +
@@ -152,6 +178,7 @@
           },
           { title: 'Ruby',
             score: 70,
+            exp: '1 an',
             code:
             'class Program\n' +
             '\n' +
@@ -166,7 +193,8 @@
             lexer: 'ruby'
           },
           { title: 'Java',
-            score: 80,
+            score: 75,
+            exp: '1 an',
             code:
             'public class HelloWorld {\n' +
             '\n' +
@@ -179,6 +207,7 @@
           },
           { title: 'C#',
             score: 75,
+            exp: '1 an',
             code:
             'using System;\n' +
             '\n' +
@@ -194,7 +223,8 @@
             lexer: 'c#'
           },
           { title: 'C',
-            score: 100,
+            score: 95,
+            exp: '3 ans',
             code:
             '#include <stdio.h>\n' +
             '\n' +
@@ -206,6 +236,11 @@
             lexer: 'c'
           }
         ]
+      }
+    },
+    computed: {
+      isActive () {
+        return (this.skill.idx >= 0)
       }
     },
     methods: {
@@ -225,26 +260,31 @@
         data.append('style', 'default')
         return (data)
       },
+      resetSkill () {
+        this.skill.show = false
+        this.skill.idx = -1
+        this.skill.code = ''
+        this.skill.exp = ''
+        this.skill.progress = 0
+      },
+      setSkill (idx) {
+        let data = this.toData(this.webSkills[idx])
+        this.$http.post('https://cors-anywhere.herokuapp.com/http://hilite.me/api', data).then((resp) => {
+          this.skill.show = true
+          this.skill.code = resp.bodyText
+          this.skill.title = this.webSkills[idx].title
+          this.skill.progress = this.webSkills[idx].score
+          this.skill.exp = this.webSkills[idx].exp
+          this.skill.idx = idx
+          VueScrollTo.scrollTo('#skill-content')
+        }, (err) => {
+          console.log(err)
+        })
+      },
       clickOnSkill (e) {
         let idx = e.target.getAttribute('data-idx')
-        if (this.skill.idx === idx) {
-          this.skill.show = false
-          this.skill.idx = -1
-          this.skill.code = ''
-          this.skill.progress = 0
-        } else {
-          this.skill.idx = idx
-          let data = this.toData(this.webSkills[idx])
-          this.$http.post('https://cors-anywhere.herokuapp.com/http://hilite.me/api', data).then((resp) => {
-            this.skill.show = true
-            this.skill.code = resp.bodyText
-            this.skill.progress = this.webSkills[idx].progress
-            console.log(this.skill.progress)
-            console.log(this.skill.show)
-          }, (err) => {
-            console.log(err)
-          })
-        }
+        this.resetSkill()
+        this.setSkill(idx)
       }
     }
   }
@@ -291,9 +331,39 @@
     background: #d4e34c;
   }
 
-  #skill-content-code prev {
+  #skill-content .col {
+    display: flex;
+  }
+
+  #skill-content {
+    margin-bottom: 8%;
+  }
+
+  #skill-content-code {
+    display: inline-block;
+    margin: auto auto 3%;
+    opacity: 1;
+  }
+
+  #skill-content-code pre {
     text-align: left;
     margin-left: 30px;
+  }
+
+  #skill-content-progress {
+    margin: auto;
+  }
+
+  #skill-content-progress h2 {
+    margin-bottom: 5%;
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0
   }
 
 </style>
