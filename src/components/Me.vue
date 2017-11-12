@@ -18,8 +18,8 @@
                     v-model="slide" @sliding-start="onStart" @sliding-end="onEnd">
           <b-carousel-slide caption="Hackathon Bonduelle/Thales" img-src="static/photo.jpg"></b-carousel-slide>
           <b-carousel-slide caption="Hackathon Bonduelle/Thales" img-src="static/Logo-Bonduelle.jpg"></b-carousel-slide>
-          <b-carousel-slide caption="DevFest 2017 à Lille" img-src="static/logo.svg"></b-carousel-slide>
-          <b-carousel-slide caption="Global Game Jam à Lille" img-src="static/globalgamejam.png"></b-carousel-slide>
+          <b-carousel-slide caption="DevFest 2017 à Lille" img-src="static/devfest.jpg"></b-carousel-slide>
+          <b-carousel-slide caption="Global Game Jam à Lille" img-src="static/global.png"></b-carousel-slide>
         </b-carousel>
       </b-col>
       </b-row>

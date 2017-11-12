@@ -20,12 +20,6 @@
 </script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Poiret+One');
-
-  @font-face {
-    font-family: 'Poiret One', cursive;
-  }
-
   #app {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

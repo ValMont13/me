@@ -16,6 +16,7 @@
             <transition name="fade">
               <div  v-if="isActive" id="skill-content-progress">
                 <h2>Expérience : {{ skill.exp }} de {{ skill.title }}</h2>
+                <h2>Maitrise du langage :</h2>
                 <b-progress :value="skill.progress" show-progress animated></b-progress>
               </div>
             </transition>

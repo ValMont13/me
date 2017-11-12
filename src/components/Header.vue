@@ -53,7 +53,6 @@
 <style lang="scss">
   @import '../assets/scss/colors/index';
   @import '../assets/scss/mixins/compatibility/index';
-  @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
   #menu {
     background-color: $strongGreen;
