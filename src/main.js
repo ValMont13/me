@@ -13,10 +13,10 @@ Vue.config.productionTip = false
 
 Vue.use(VueScrollTo, {
   container: 'body',
-  duration: 500,
+  duration: 1000,
   easing: 'ease',
-  offset: 0,
-  cancelable: true,
+  offset: -200,
+  cancelable: false,
   onDone: false,
   onCancel: false,
   x: false,

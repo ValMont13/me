@@ -276,7 +276,11 @@
           this.skill.progress = this.webSkills[idx].score
           this.skill.exp = this.webSkills[idx].exp
           this.skill.idx = idx
-          VueScrollTo.scrollTo('#skill-content')
+          if (window.innerWidth < 700) {
+            VueScrollTo.scrollTo('#skill-content', 1000, {
+              offset: -200
+            })
+          }
         }, (err) => {
           console.log(err)
         })
@@ -295,6 +299,10 @@
   @import '../assets/scss/colors/index';
   @import '../assets/scss/mixins/compatibility/index';
 
+  #skills {
+    border-bottom: double 4px black;
+  }
+
   #web-skills {
     margin: 5% 1%;
   }
@@ -307,6 +315,7 @@
     text-transform: uppercase;
     margin: 4px;
     text-shadow: 0 2px #118012;
+    cursor: pointer;
     @include shadows($lightShadow-black);
     @include transitions($quick)
   }
@@ -341,7 +350,7 @@
 
   #skill-content-code {
     display: inline-block;
-    margin: auto auto 3%;
+    margin: auto auto 20px;
     opacity: 1;
   }
 

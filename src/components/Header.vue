@@ -21,7 +21,7 @@
         menu: [
           { title: 'Moi', link: '#me' },
           { title: 'Mes Compétences', link: '#skills' },
-          { title: 'Mes Projets', link: '#projets' }
+          { title: 'Mes Projets', link: '#projects' }
         ],
         show: window.innerWidth > 400
       }
