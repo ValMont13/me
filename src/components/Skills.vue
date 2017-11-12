@@ -3,7 +3,7 @@
     <h2>Mes Compétences</h2>
     <b-container>
       <b-row id="web-skills">
-        <b-col sm="auto" @click="clickOnSkill" class="web-skill" v-for="(skill, idx) in webSkills" :key="skill.title" :class="getColor(skill)" :data-idx="idx">{{ skill.title }}</b-col>
+        <b-col sm="12" md="auto" @click="clickOnSkill" class="web-skill" v-for="(skill, idx) in webSkills" :key="skill.title" :class="getColor(skill)" :data-idx="idx">{{ skill.title }}</b-col>
       </b-row>
     </b-container>
     <b-container>

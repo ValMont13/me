@@ -136,11 +136,12 @@
     .title {
       font-size: 28px;
     }
+  }
 
+  @media only screen and (max-width: 400px) {
     header {
       border-bottom: solid 10px $strongGreen;
     }
-
   }
 
 </style>
