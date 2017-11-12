@@ -52,8 +52,8 @@
   @import '../assets/scss/mixins/compatibility/index';
 
   #me {
-    min-height: 80vh;
     margin: 3%;
+    padding-bottom: 5%;
     text-align: left;
     border-bottom: double 4px black;
   }
