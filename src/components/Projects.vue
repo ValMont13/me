@@ -18,7 +18,7 @@
       return {
         projects: [
           {
-            link: '',
+            link: 'https://www.motardsociety.com/',
             img: 'static/motard.png'
           },
           {
