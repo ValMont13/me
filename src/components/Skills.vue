@@ -315,7 +315,7 @@
     font-weight: 800;
     text-transform: uppercase;
     margin: 4px;
-    text-shadow: 0 2px #118012;
+    text-shadow: 0 2px #252f26;
     cursor: pointer;
     @include shadows($lightShadow-black);
     @include transitions($quick)

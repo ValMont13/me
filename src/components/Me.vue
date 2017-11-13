@@ -64,6 +64,7 @@
 
   #me-slide {
     margin-top: 10%;
+    @include shadows($lightShadow-gray);
   }
 
   .txt-container-content {
