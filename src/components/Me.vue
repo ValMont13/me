@@ -47,15 +47,15 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../assets/scss/colors/index';
   @import '../assets/scss/mixins/compatibility/index';
 
   #me {
     margin: 3%;
-    padding-bottom: 5%;
+    padding: 3%;
     text-align: left;
-    border-bottom: double 4px black;
+    box-shadow: 0 0 5px -2px gray;
   }
 
   .txt-container {

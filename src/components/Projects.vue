@@ -31,7 +31,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   .img-container img {
     width: 100%;

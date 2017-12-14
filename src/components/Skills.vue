@@ -15,9 +15,8 @@
           <b-col>
             <transition name="fade">
               <div  v-if="isActive" id="skill-content-progress">
-                <h2>Expérience : {{ skill.exp }} de {{ skill.title }}</h2>
-                <h2>Maitrise du langage :</h2>
-                <b-progress :value="skill.progress" show-progress animated></b-progress>
+                <h2>Niveau :</h2>
+                <h2 id="skill-level">{{ skill.progress }}</h2>
               </div>
             </transition>
           </b-col>
@@ -44,8 +43,7 @@
         },
         webSkills: [
           { title: 'HTML5',
-            score: 100,
-            exp: '3 ans',
+            score: 'Avancé',
             code:
             '<header></header>\n' +
             '<section id="home">\n' +
@@ -57,8 +55,7 @@
             lexer: 'html'
           },
           { title: 'CSS3',
-            score: 80,
-            exp: '3 ans',
+            score: 'Avancé',
             code:
           '  #topbar h2 {\n' +
           '    display: inline-block;\n' +
@@ -88,22 +85,19 @@
             lexer: 'css'
           },
           { title: 'PHP',
-            score: 70,
-            exp: '1 an',
+            score: 'Intermédiaire',
             code:
             '<?php echo \'<h1> Hello World !</h1>\'; ?>',
             lexer: 'php'
           },
           { title: 'Javascript',
-            score: 90,
-            exp: '3 ans',
+            score: 'Intermédiaire',
             code:
             'console.log("Hello World !")',
             lexer: 'javascript'
           },
           { title: 'Node',
-            score: 70,
-            exp: '1 an',
+            score: 'Intermédiaire',
             code:
             'const express = require(\'express\')\n' +
             'const app = express()\n' +
@@ -119,8 +113,7 @@
             lexer: 'javascript'
           },
           { title: 'Vue',
-            score: 70,
-            exp: '1 an',
+            score: 'Intermédiaire',
             code:
             'new Vue({\n' +
             '   el: "#hello-world-app",\n' +
@@ -133,8 +126,7 @@
             lexer: 'javascript'
           },
           { title: 'jQuery',
-            score: 100,
-            exp: '3 ans',
+            score: 'Intermédiaire',
             code:
             '$(document).ready(function(){\n' +
             ' $("#msgid").html("This is Hello World by JQuery");\n' +
@@ -142,8 +134,7 @@
             lexer: 'javascript'
           },
           { title: 'C++',
-            score: 90,
-            exp: '2 ans',
+            score: 'Avancé',
             code:
             '#include <iostream>\n' +
             '\n' +
@@ -155,8 +146,7 @@
             lexer: 'c++'
           },
           { title: 'Assembly 64',
-            score: 55,
-            exp: '2 mois',
+            score: 'Débutant',
             code:
             'section .data\n' +
             '    msg db      "hello, world!"\n' +
@@ -178,8 +168,7 @@
             lexer: 'c++'
           },
           { title: 'Ruby',
-            score: 70,
-            exp: '1 an',
+            score: 'Intermédiaire',
             code:
             'class Program\n' +
             '\n' +
@@ -194,8 +183,7 @@
             lexer: 'ruby'
           },
           { title: 'Java',
-            score: 75,
-            exp: '1 an',
+            score: 'Intermédiaire',
             code:
             'public class HelloWorld {\n' +
             '\n' +
@@ -207,7 +195,7 @@
             lexer: 'java'
           },
           { title: 'C#',
-            score: 75,
+            score: 'Intermédiaire',
             exp: '1 an',
             code:
             'using System;\n' +
@@ -224,8 +212,7 @@
             lexer: 'c#'
           },
           { title: 'C',
-            score: 95,
-            exp: '3 ans',
+            score: 'Avancé',
             code:
             '#include <stdio.h>\n' +
             '\n' +
@@ -246,9 +233,9 @@
     },
     methods: {
       getColor (skill) {
-        if (skill.score >= 90) {
+        if (skill.score === 'Avancé') {
           return ('best')
-        } else if (skill.score >= 70) {
+        } else if (skill.score === 'Intermédiaire') {
           return ('good')
         } else {
           return ('learning')
@@ -295,13 +282,19 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
   @import '../assets/scss/colors/index';
   @import '../assets/scss/mixins/compatibility/index';
 
+  pre {
+    text-align: left;
+  }
+
   #skills {
-    border-bottom: double 4px black;
+    padding: 3%;
+    margin: 3%;
+    box-shadow: 0 0 5px -2px gray;
   }
 
   #web-skills {
@@ -315,7 +308,7 @@
     font-weight: 800;
     text-transform: uppercase;
     margin: 4px;
-    text-shadow: 0 2px #252f26;
+    text-shadow: 0 1px #252f26;
     cursor: pointer;
     @include shadows($lightShadow-black);
     @include transitions($quick)
@@ -374,6 +367,14 @@
 
   .fade-enter, .fade-leave-to {
     opacity: 0
+  }
+
+  #skill-level {
+    font-size: 45px;
+    font-weight: 900;
+    color: black;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px black;
   }
 
 </style>
