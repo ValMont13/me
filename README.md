@@ -1,6 +1,6 @@
-# testvue
+# SinglePage
 
-> test
+> Little Single page about me, using VueJS
 
 ## Build Setup
 
