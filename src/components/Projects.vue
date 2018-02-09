@@ -32,9 +32,9 @@
     },
     methods: {
       clickOnProject (e) {
-        e.preventDefault()
         let work = e.target.getAttribute('data-end')
         if (!work) {
+          e.preventDefault()
           alert('Désolé mais ce site est en cours de construction !')
         }
       }
