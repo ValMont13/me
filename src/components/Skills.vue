@@ -346,6 +346,7 @@
     display: inline-block;
     margin: auto auto 20px;
     opacity: 1;
+    text-align: left;
   }
 
   #skill-content-code pre {

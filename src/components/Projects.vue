@@ -4,7 +4,7 @@
         <b-col v-for="(project, idx) in projects" :key="project"  sm="6">
           <div class="img-container">
             <img :src=project.img>
-            <a class="project-link" :href=project.link></a>
+            <a class="project-link" @click="clickOnProject" :href=project.link :data-end=project.end></a>
           </div>
         </b-col>
       </b-row>
@@ -19,13 +19,24 @@
         projects: [
           {
             link: 'https://www.motardsociety.com/',
-            img: 'static/motard.png'
+            img: 'static/motard.png',
+            end: true
           },
           {
             link: '',
-            img: 'static/funambulant.png'
+            img: 'static/funambulant.png',
+            end: false
           }
         ]
+      }
+    },
+    methods: {
+      clickOnProject (e) {
+        e.preventDefault()
+        let work = e.target.getAttribute('data-end')
+        if (!work) {
+          alert('Désolé mais ce site est en cours de construction !')
+        }
       }
     }
   }
